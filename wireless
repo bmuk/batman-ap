@@ -5,18 +5,20 @@ config wifi-device radio0
         option path 'platform/ar933x_wmac'
         option htmode HT20
 
-config wifi-iface
+config wifi-iface 'wmesh'
         option device radio0
+        option ifname 'adhoc0'
+        option network 'mesh'
+        option mode adhoc
+        option ssid 'mesh'
+        option bssid '02:12:34:56:78:9A'
+        option mcast_rate 18000
         option encryption none
+
+config wifi-iface accesspoint0
+        option device radio0
+        option ifname wifiap0
         option network mesh_bridge
         option mode ap
         option ssid 'meshAP'
-
-config wifi-iface
-        option device radio0
         option encryption none
-        option network mesh0
-        option mode adhoc
-        option bssid 02:12:34:56:78:9A
-        option ssid 'mesh'
-        option mcast_rate 18000
